@@ -7,7 +7,7 @@ let api = axios.create({
 let profilesEndpoints = {
     // Todo: Add more profile endpoints
  
-    me() {
+    me: () => {
         return api.get("/me/");
     },
     signIn(data) {
