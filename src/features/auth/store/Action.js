@@ -21,9 +21,7 @@ const getUserInfoFailHandler = error => ({
 
 export const signIn = (data) => dispatch => {
     dispatch({ type: actionType.USER_TOKEN_REQUEST });
-    return axios.post(
-        `/auth/local/login`, data
-    )
+    return axios.signIn(data)
         .then(result => {
             dispatch(getTokenHandler(result.data));
         })
@@ -33,12 +31,9 @@ export const signIn = (data) => dispatch => {
         });
 };
 
-export const register = (data) => dispatch => {
+export const register = (userType="client",data) => dispatch => {
     dispatch({ type: actionType.USER_TOKEN_REQUEST });
-    return axios
-        .post(
-            `/auth/local/register`, data
-        )
+    return axios.signUp(userType, data)
         .then(result => {
             dispatch(getTokenHandler(result.data));
         })
@@ -49,10 +44,7 @@ export const register = (data) => dispatch => {
 };
 export const me = () => dispatch => {
     dispatch({ type: actionType.USER_INFO_REQUEST });
-    return axios
-        .get(
-            `/api/users/me`
-        )
+    return axios.me()
         .then(result => {
             dispatch(getUserInfoHandler(result.data));
         })
