@@ -7,14 +7,14 @@ export default   createMuiTheme({
             paper: "#e2e2e2"
         },
         primary: {
-            main: "#ffffff"
+            main: "#ffd833"
         },
         secondary: {
             main: "#f30239"
         },
         text: {
             primary: "#000000",
-            secondary: "#fff4ff"
+            secondary: "#ff2b4a"
         },
         contrastThreshold: 9,
     },
