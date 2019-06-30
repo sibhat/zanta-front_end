@@ -7,17 +7,18 @@ let api = axios.create({
 let profilesEndpoints = {
     // Todo: Add more profile endpoints
  
-    me: () => {
+    me(){
         return api.get("/me/");
     },
     signIn(data) {
-        data = {
+        let newData = {
             ...data,
+            // username: "some",
             grant_type: "password",
             client_id: process.env.REACT_APP_CLIENT_ID,
             client_secret: process.env.REACT_APP_CLIENT_SECRET
         };
-        return api.post(`/o/token/`, data);
+        return api.post(`/o/token/`, newData);
     },
 
     signUp(userType, data) {
@@ -34,15 +35,28 @@ let profilesEndpoints = {
     }
 };
 
+let invitation = {
+    createInvitation(data){
+        return api.post(`/invitation/`, data)
+    }
+};
 let billingEndpoints = {
     // Todo: Add billing endpoints here
-    async charge(token, item) {
-    return await api.post("/charge/", { token, item });
-}
+        async charge(token, item) {
+        return await api.post("/charge/", { token, item });
+    }
 };
+let services = {
+    getAllServices(){
+        return api.get("/service/")
+    }
+};
+
 api.endpoints = {
     ...profilesEndpoints,
     ...billingEndpoints,
+    ...services,
+    ...invitation,
 };
 if (localStorage.getItem("user_token")) {
     api.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem("user_token")}`;
