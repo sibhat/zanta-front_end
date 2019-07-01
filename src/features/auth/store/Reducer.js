@@ -10,10 +10,10 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case actionType.USER_TOKEN_SUCCESS:
-            localStorage.setItem("user_token", action.payload.token);
+            localStorage.setItem("user_token", action.payload.access_token);
             return {
                 ...state, user_request: false, 
-                user_token: action.payload.token, 
+                user_token: action.payload.access_token, 
                 user_authenticated_error: null,
                 user_authenticated_success: false,
 
