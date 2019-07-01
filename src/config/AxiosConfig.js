@@ -50,7 +50,7 @@ let services = {
     getAllServices(){
         return api.get("/service/")
     }
-};
+};  
 
 api.endpoints = {
     ...profilesEndpoints,
