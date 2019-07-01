@@ -21,10 +21,10 @@ class Auth extends Component {
     handleSubmit = (event) =>{
         event.preventDefault();
         let user = {
-            email: this.state.email,
+            username: this.state.email,
             password: this.state.password
         };
-        this.props.signIn(user);
+        this.props.signIn(user, this.props.history);
     };
     handleOpen = () => {
         this.setState({ open: true });
