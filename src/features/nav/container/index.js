@@ -22,6 +22,7 @@ class Nav extends Component {
             open={this.state.open}
             handleDrawerOpen={this.handleDrawerOpen}
             handleDrawerClose={this.handleDrawerClose}
+            history={this.props.history}
         />;
     }
 }

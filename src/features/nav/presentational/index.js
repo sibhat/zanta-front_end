@@ -14,11 +14,12 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import styles from "./NavJSS";
 import Auth from "../../auth/container";
 
-const NavPresentational = ({ classes, open, handleDrawerOpen, handleDrawerClose }) => {
+const NavPresentational = ({ classes, open, handleDrawerOpen, handleDrawerClose, history }) => {
     return (
         <>
             <AppBar
                 position="absolute"
+                color="default"
                 className={classNames(
                     classes.appBar,
                     open && classes.appBarShift
@@ -37,7 +38,7 @@ const NavPresentational = ({ classes, open, handleDrawerOpen, handleDrawerClose 
                         <MenuIcon />
                     </IconButton>
                     {/*<Search classes={classes} />*/}
-                    <Auth/>
+                    <Auth history = {history}/>
                 </Toolbar>
             </AppBar>
             <Drawer

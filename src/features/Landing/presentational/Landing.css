@@ -1,0 +1,24 @@
+.landing{
+    position: relative;
+}
+.landing_center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.landing_info{
+    margin-left: 10%;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+.text_shadow{
+    text-shadow: 1px 5px 7px #00000085;
+}
+/*.landing_center a{*/
+    /*color: #FFF;*/
+    /*font-size: 40px;*/
+    /*text-decoration: none;*/
+/*}*/
